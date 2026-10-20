@@ -16,6 +16,10 @@ fontsize: 11pt
 | Ilies HAMADENE | @Deep0315 | deardeep91230@gmail.com |
 | Steven KAMEL | @Stevenkml | 43005976@parisnanterre.fr |
 
+Dépôt unique pour les quatre couches : https://github.com/cluedo-m1/cluedo.     
+Chaque membre a vérifié que l'email de ses commits est associé à son compte GitHub.   
+Organisation : chacun porte un domaine du plan des features et livre une feature complète par version, de la BD au front ; chaque pull request est relue par un autre membre avant fusion.
+
 # 02 Projet et caractère innovant
 
 ## 1. Mise en contexte
@@ -82,9 +86,9 @@ Une feature a un effet sur la BD, le back, l'API REST et le front. Chaque featur
 
 | Version | Steven (Génération) | Rafael (Solveur) | Ilies (Monde) | Nathan (Joueur) |
 |------|-----------|-----------|-----------|-----------|
-| v0.1.0 24/11 | Affaire tirée sous contraintes — Satisfaction de contraintes (CSP / Backtracking) | Moteur de déduction — Propagation de contraintes (AC-3) et retour arrière | Graphe spatio-temporel du campus — Cheminement sur graphe orienté horodaté | Filtrage d'hypothèses — Réduction dynamique de domaine d'états |
+| v0.1.0 24/11 | Affaire tirée sous contraintes — Satisfaction de contraintes (CSP / Backtracking) | Moteur de déduction — Propagation de contraintes (AC-3) et retour arrière | Graphe spatio-temporel du campus — Cheminement sur graphe orienté horodaté | Filtrage d'hypothèses —Dénombrement des scénarios compatibles (énumération par retour arrière) |
 | v0.2.0 08/12 | Indices minimaux à solution unique — Réduction d'ensemble minimal (Unsat Core / Hill-Climbing) | Évaluation de la difficulté — Calcul de profondeur d'arbre de preuve logique | Témoignages et mensonges réfutables — Détection d'incohérences par logique modale | Indice adaptatif — Gain d'information (Entropie de Shannon) |
-| v1.0.0 19/01 | Génération à difficulté cible — Recherche locale (Recuit simulé) | Explication pas à pas de la solution — Extraction et linéarisation de preuve formelle | Génération procédurale des plans — Partitionnement binaire d'espace (BSP) | Affaire du jour et score optimal — Pseudo-aléatoire déterministe (Seed) & Distance à la preuve minimale |
+| v1.0.0 19/01 | Génération à difficulté cible — Recherche locale (Recuit simulé) | Explication pas à pas de la solution — Extraction et linéarisation de preuve formelle | Génération procédurale des plans — Partitionnement binaire d'espace (BSP) | Affaire du jour et score optimal — Plus court chemin dans l’espace des indices (parcours en largeur) |
 
 # 05 Architecture
 
