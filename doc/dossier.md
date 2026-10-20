@@ -190,6 +190,8 @@ Pour la rédaction de cette section, l’IA a été utilisée comme aide à la f
 
 # Annexe : part IA et part humaine du dossier de lancement
 
+![Part IA par compétence](part-ia/dossier-lancement.png){ width=60% }
+
 <!--
 Responsable : ... [30 mots + le graphe]
 1. Fixez en équipe doc/part-ia/plafonds.json : plafonds communs à tous les livrables,
