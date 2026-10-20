@@ -35,21 +35,55 @@ Responsable : ... [60 mots + le tableau]
 | Membre | Compte GitHub | Email des commits |
 |---------|---------|--------------|
 |  |  |  |
-|  |  |  |
+| Rafael RODRIGUES | @rdsrafa  | rafi.rodrigues10@gmail.com |
 |  |  |  |
 |  |  |  |
 
 # 02 Projet et caractère innovant
 
-<!--
-Responsable : ... [180 mots]
-- Le problème : pour qui, et qu'est-ce qui manque aujourd'hui ?
-- Le produit, en deux ou trois phrases (pitch validé par tout le groupe).
-- Ce qui est innovant, en 2 ou 3 points justifiés. Critère de l'exemple :
-  « le calcul plutôt que le stockage ».
-- Ce qui existe déjà : uniquement des jeux ou outils vérifiés par vous.
-- « Cluedo » est une marque : pas comme nom de produit.
--->
+## 1. Mise en contexte
+
+Cluedo est un jeu de société d’enquête dans lequel les joueurs cherchent à découvrir qui a commis un crime dans le manoir Tudor, en déduisant la vérité à partir des indices disponibles.
+
+Notre projet reprend ce principe à l’échelle de la faculté. Le jeu propose d’enquêter sur des situations inspirées de problématiques que nous avons rencontrées au cours de nos études.
+
+L’année dernière, dans un cours de programmation orientée objet, un sujet d’examen a fuité, ce qui nous a obligés à repasser l’épreuve. Cet événement constitue un exemple de scénario que notre jeu pourrait proposer.
+
+Les joueurs devront mener leur enquête en déterminant, à partir des indices, qui a pu accéder à certains lieux ou équipements : une salle, une imprimante ou encore un serveur. Le tout se déroule dans un environnement interactif, au sein d’un campus fictif.
+
+## 2. Objectif et problématique
+
+L’objectif du projet est de créer un jeu d’enquête interactif capable de générer automatiquement des scénarios cohérents, tout en permettant aux joueurs de progresser grâce aux indices et aux explications fournies.
+
+**Problématique :**
+
+> Comment générer automatiquement des enquêtes cohérentes, à solution unique et de difficulté maîtrisée, puis expliquer chaque déduction, dans des situations proches du quotidien d’un campus ?
+
+## 3. Ce qui rend notre projet innovant
+
+### 3.1. Une seule bonne réponse
+
+Dans les énigmes conçues manuellement, il peut arriver que plusieurs coupables soient possibles, ou qu’aucune solution ne soit correcte.
+
+Notre programme vérifie chaque enquête avant de la proposer au joueur. Il s’assure qu’elle possède exactement une solution et que les indices disponibles permettent de la retrouver.
+
+### 3.2. Chaque déduction est expliquée
+
+Lorsque le joueur se trompe ou rencontre une difficulté, le jeu ne se contente pas d’indiquer que sa réponse est fausse.
+
+Il présente le raisonnement étape par étape et peut proposer un indice pour aider le joueur à progresser. Le jeu devient ainsi un outil permettant de développer ses capacités de déduction.
+
+### 3.3. Un campus fictif, des incidents réalistes
+
+L’histoire se déroule dans une faculté imaginaire peuplée de personnages inventés.
+
+Les enquêtes s’inspirent de situations réalistes pouvant survenir dans un environnement universitaire, comme une fuite de sujet d’examen, une intrusion sur un serveur ou la disparition de matériel.
+
+### 3.4. Une difficulté réglable
+
+Le jeu doit pouvoir proposer des enquêtes de difficultés différentes.
+
+Il peut notamment intégrer de fausses pistes, avec des suspects qui semblent coupables sans l’être. Cela rend les enquêtes plus réalistes et plus stimulantes, tout en conservant une solution unique.
 
 # 03 Scénarios d'usage
 
