@@ -37,7 +37,7 @@ Responsable : ... [60 mots + le tableau]
 |  |  |  |
 | Rafael RODRIGUES | @rdsrafa  | rafi.rodrigues10@gmail.com |
 |  |  |  |
-|  |  |  |
+| Steven KAMEL | @Stevenkml | 43005976@parisnanterre.fr |
 
 # 02 Projet et caractère innovant
 
