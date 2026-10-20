@@ -137,10 +137,26 @@ Responsable : ... [120 mots + le tableau : 6 lignes, 10 mots par case au plus]
 - L'usage déjà fait, déclaré tel quel : choix du sujet, idées de features,
   structure de ce dossier, mise en place du dépôt, script de l'araignée.
 -->
+Principe :
+L’intelligence artificielle est utilisée comme un assistant pour suggérer des solutions, expliquer des notions et relire le code. L’équipe reste responsable de ses choix techniques et de l’ensemble du code intégré au projet. Chaque membre doit être capable d’expliquer le code qu’il soumet, notamment lors de la soutenance.
 
 | Activité | Ce que fait l'IA | Ce que fait l'humain |
-|-------|-----------|-----------|
-|  |  |  |
+|----------|------------------|----------------------|
+| Idéation et conception | Aide à approfondir les idées et à proposer des pistes d'amélioration. | Imagine les fonctionnalités, définit les besoins et choisit les solutions à développer. |
+| Algorithme (cœur de la feature) | Suggère des algorithmes et explique leur fonctionnement. | Choisit l'algorithme adapté, vérifie sa logique et comprend son fonctionnement. |
+| Code technique (API, front, configuration) | Génère des exemples de code et propose des implémentations. | Adapte le code à l'architecture du projet, le vérifie et l'intègre. |
+| Tests | Propose des cas de test et peut aider à analyser des résultats. | Exécute les tests, analyse les résultats et vérifie que la fonctionnalité répond aux besoins. |
+| Documentation | Aide à rédiger les commentaires, les descriptions et la documentation technique. | Vérifie l'exactitude des informations et valide la documentation finale. |
+| Débogage | Analyse les erreurs et suggère des corrections possibles. | Identifie la cause du problème, teste les corrections et valide la solution retenue. |
+
+Règles et interdictions :
+Le code généré par l’IA ne doit jamais être intégré sans vérification et sans compréhension de son fonctionnement. Il est interdit de considérer les réponses de l’IA comme systématiquement correctes ou de lui déléguer les décisions techniques finales. Les membres doivent également éviter de lui transmettre des secrets, des mots de passe ou des informations confidentielles.
+
+Traçabilité :
+Chaque pull request comporte une section « Usage de l’IA » précisant les tâches réalisées avec son aide et les vérifications effectuées par le développeur. Pour chaque livrable, une représentation en araignée de la répartition entre les contributions humaines et celles de l’IA est produite à partir des estimations de l’équipe.
+
+Utilisation pour le présent dossier :
+Pour la rédaction de cette section, l’IA a été utilisée comme aide à la formulation et à la structuration des idées. Le contenu final est relu et validé par le membre responsable.
 
 # Annexe : part IA et part humaine du dossier de lancement
 
