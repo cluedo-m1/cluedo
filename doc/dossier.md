@@ -1,7 +1,7 @@
 ---
 title: "NOM DU PRODUIT"
 subtitle: "Dossier de projet — M1 MIAGE Apprentissage — R1 : dossier de lancement"
-author: "Prénom NOM, Prénom NOM, Prénom NOM, Steven KAMEL
+author: "Prénom NOM, Prénom NOM, Ilies HAMADENE, Steven KAMEL
 date: "20 octobre 2026"
 geometry: margin=2cm
 fontsize: 11pt
@@ -36,7 +36,7 @@ Responsable : ... [60 mots + le tableau]
 |---------|---------|--------------|
 |  |  |  |
 | Rafael RODRIGUES | @rdsrafa  | rafi.rodrigues10@gmail.com |
-|  |  |  |
+| Ilies HAMADENE | @Deep0315 | deardeep91230@gmail.com |
 | Steven KAMEL | @Stevenkml | 43005976@parisnanterre.fr |
 
 # 02 Projet et caractère innovant
@@ -223,7 +223,7 @@ Responsable : ... [120 mots + le tableau : 6 lignes, 10 mots par case au plus]
 - L'usage déjà fait, déclaré tel quel : choix du sujet, idées de features,
   structure de ce dossier, mise en place du dépôt, script de l'araignée.
 -->
-Principe :
+## Principe :
 L’intelligence artificielle est utilisée comme un assistant pour suggérer des solutions, expliquer des notions et relire le code. L’équipe reste responsable de ses choix techniques et de l’ensemble du code intégré au projet. Chaque membre doit être capable d’expliquer le code qu’il soumet, notamment lors de la soutenance.
 
 | Activité | Ce que fait l'IA | Ce que fait l'humain |
@@ -235,13 +235,13 @@ L’intelligence artificielle est utilisée comme un assistant pour suggérer de
 | Documentation | Aide à rédiger les commentaires, les descriptions et la documentation technique. | Vérifie l'exactitude des informations et valide la documentation finale. |
 | Débogage | Analyse les erreurs et suggère des corrections possibles. | Identifie la cause du problème, teste les corrections et valide la solution retenue. |
 
-Règles et interdictions :
+## Règles et interdictions :
 Le code généré par l’IA ne doit jamais être intégré sans vérification et sans compréhension de son fonctionnement. Il est interdit de considérer les réponses de l’IA comme systématiquement correctes ou de lui déléguer les décisions techniques finales. Les membres doivent également éviter de lui transmettre des secrets, des mots de passe ou des informations confidentielles.
 
-Traçabilité :
+## Traçabilité :
 Chaque pull request comporte une section « Usage de l’IA » précisant les tâches réalisées avec son aide et les vérifications effectuées par le développeur. Pour chaque livrable, une représentation en araignée de la répartition entre les contributions humaines et celles de l’IA est produite à partir des estimations de l’équipe.
 
-Utilisation pour le présent dossier :
+## Utilisation pour le présent dossier :
 Pour la rédaction de cette section, l’IA a été utilisée comme aide à la formulation et à la structuration des idées. Le contenu final est relu et validé par le membre responsable.
 
 # Annexe : part IA et part humaine du dossier de lancement
