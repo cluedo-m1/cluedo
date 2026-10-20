@@ -1,43 +1,24 @@
 ---
-title: "NOM DU PRODUIT"
+title: "CLUEDO"
 subtitle: "Dossier de projet — M1 MIAGE Apprentissage — R1 : dossier de lancement"
-author: "Prénom NOM, Prénom NOM, Ilies HAMADENE, Steven KAMEL
+author: "Nathan EULLAFFROY, Rafael RODRIGUES, Ilies HAMADENE, Steven KAMEL"
 date: "20 octobre 2026"
 geometry: margin=2cm
 fontsize: 11pt
 ---
 
-<!--
-MODE D'EMPLOI (ces commentaires n'apparaissent pas dans le PDF)
-- Structure calquée sur l'exemple de l'enseignant : sections 01 à 07, puis l'annexe.
-  Les sections 08 et suivantes de l'exemple (livraison, fiches des features)
-  arriveront à la v0.1.0.
-- Chacun ne modifie QUE sa section, depuis SON compte, via une pull request.
-- Les consignes sous chaque titre sont des questions : répondez-y avec vos mots,
-  puis supprimez le commentaire.
-- Limite : 4 pages au total, annexe comprise. Budget de chaque section entre crochets.
-- Pas d'emoji ni de flèche dans le texte : le moteur PDF par défaut les refuse.
--->
-
 # 01 Équipe, comptes développeurs et dépôt
-
-<!--
-Responsable : ... [60 mots + le tableau]
-- Le tableau : membre, compte GitHub, email des commits (git config user.email).
-  Dépôt public : adresse noreply de GitHub, pas l'email personnel.
-- Une phrase : chacun a vérifié que son email Git est associé à son compte GitHub.
-- L'URL du dépôt unique (les quatre couches dans le même dépôt).
-- L'organisation : qui porte quel domaine ; une feature complète par membre et par
-  itération, de la BD au front ; les tâches transverses partagées ; chaque pull
-  request relue par un autre membre.
--->
 
 | Membre | Compte GitHub | Email des commits |
 |---------|---------|--------------|
-|  |  |  |
+| Nathan EULLAFFROY | @neullaffroy | 46014811@parisnanterre.fr |
 | Rafael RODRIGUES | @rdsrafa  | rafi.rodrigues10@gmail.com |
 | Ilies HAMADENE | @Deep0315 | deardeep91230@gmail.com |
 | Steven KAMEL | @Stevenkml | 43005976@parisnanterre.fr |
+
+Dépôt unique pour les quatre couches : https://github.com/cluedo-m1/cluedo.     
+Chaque membre a vérifié que l'email de ses commits est associé à son compte GitHub.   
+Organisation : chacun porte un domaine du plan des features et livre une feature complète par version, de la BD au front ; chaque pull request est relue par un autre membre avant fusion.
 
 # 02 Projet et caractère innovant
 
@@ -87,52 +68,29 @@ Il peut notamment intégrer de fausses pistes, avec des suspects qui semblent co
 
 # 03 Scénarios d'usage
 
-<!--
-Responsable : NATHAN. [180 mots : 6 scénarios de 30 mots]
-- 5 ou 6 scénarios numérotés, au format de l'exemple :
-  « En tant que <rôle>, je <action>. L'application <ce qu'elle calcule>, afin de <bénéfice>. »
-- Chaque feature de la v0.1.0 a son scénario ; ajoutez une ou deux features de la v0.2.0.
-- Chaque scénario montre ce que l'application CALCULE, pas ce qu'elle stocke.
-- Au moins deux rôles différents.
-- Mêmes noms de features que dans la section 04 ; aucun détail d'interface.
--->
+1. En tant que joueur ou joueuse, je lance une nouvelle enquête. L'application génère automatiquement une affaire sous contraintes et vérifie, avant de me la proposer, qu'elle possède exactement une solution unique et qu'elle peut toujours être résolue grâce aux indices fournis.
+
+2. En tant que joueur ou joueuse, je formule des hypothèses sur le suspect, le lieu et l'objet de l'incident. L'application met à jour dynamiquement la liste des possibles en éliminant les pistes incompatibles avec les indices déjà recueillis.
+
+3. En tant que joueur ou joueuse, bloqué(e) dans mon enquête, je demande un indice. L'application me fournit un indice adaptatif calculé pour maximiser le gain d'information sans me donner directement la solution.
+
+4. En tant que joueur ou joueuse, après avoir soumis ma conclusion (ou en cas d'erreur), je demande l'explication du raisonnement. L'application m'affiche la démonstration étape par étape du chemin logique menant à la solution unique.
+
+5. En tant que joueur ou joueuse, j'explore le campus virtuel en consultant la carte et les déplacements horodatés des suspects, puis je croise les témoignages pour repérer les mensonges et les incohérences de planning. L'application contrôle la cohérence spatio-temporelle de chaque trajet à partir des temps de parcours du graphe du campus, et signale toute impossibilité physique de déplacement pour identifier un témoignage mensonger.
+
+6. En tant qu'enseignant ou enseignante, je saisis une série d'indices ou de contraintes sur un incident de campus. L'application vérifie automatiquement que l'enquête est solvable, possède exactement une seule solution et génère une explication complète.
 
 # 04 Plan des features
 
-<!--
-Responsable : NATHAN pour le tableau ; chaque membre rédige lui-même ses 3 cases.
-[1 phrase + le tableau ; 10 mots par case au plus]
-- Règle de l'enseignant : « Une feature a un effet sur la BD, le back, l'API REST
-  et le front. Chaque feature est portée par une seule personne et repose sur un
-  algorithme identifié. »
-- Test des 4 couches, pour chaque feature : quelle table, quel traitement,
-  quel endpoint, quel écran ?
-- Format d'une case : « Nom de la feature — algorithme ».
--->
+Une feature a un effet sur la BD, le back, l'API REST et le front. Chaque feature est portée par une seule personne et repose sur un algorithme identifié.
 
-| Version | Membre 1 (domaine) | Membre 2 (domaine) | Membre 3 (domaine) | Membre 4 (domaine) |
+| Version | Steven (Génération) | Rafael (Solveur) | Ilies (Monde) | Nathan (Joueur) |
 |------|-----------|-----------|-----------|-----------|
-| v0.1.0 24/11 |  |  |  |  |
-| v0.2.0 08/12 |  |  |  |  |
-| v1.0.0 19/01 |  |  |  |  |
+| v0.1.0 24/11 | Affaire tirée sous contraintes — Satisfaction de contraintes (CSP / Backtracking) | Moteur de déduction — Propagation de contraintes (AC-3) et retour arrière | Graphe spatio-temporel du campus — Cheminement sur graphe orienté horodaté | Filtrage d'hypothèses —Dénombrement des scénarios compatibles (énumération par retour arrière) |
+| v0.2.0 08/12 | Indices minimaux à solution unique — Réduction d'ensemble minimal (Unsat Core / Hill-Climbing) | Évaluation de la difficulté — Calcul de profondeur d'arbre de preuve logique | Témoignages et mensonges réfutables — Détection d'incohérences par logique modale | Indice adaptatif — Gain d'information (Entropie de Shannon) |
+| v1.0.0 19/01 | Génération à difficulté cible — Recherche locale (Recuit simulé) | Explication pas à pas de la solution — Extraction et linéarisation de preuve formelle | Génération procédurale des plans — Partitionnement binaire d'espace (BSP) | Affaire du jour et score optimal — Plus court chemin dans l’espace des indices (parcours en largeur) |
 
 # 05 Architecture
-
-<!--
-Responsable : ... [120 mots + le tableau]
-- Le tableau, une ligne par couche ; pour chaque choix, une raison.
-- Pas de découpage « back d'abord, front ensuite » : chaque feature traverse
-  les 4 couches dès la v0.1.0.
-- Qualité et livraison : tests, couverture, qualité de code et intégration continue
-  sont exigés à la v0.1.0, badges compris. Conteneurs : exigés à la v0.2.0.
-- Où vivent les algorithmes : un module par domaine, cœur en Java pur,
-  testable sans Spring ni BD.
-- Le modèle commun : les données partagées par toutes les features (l'affaire ?),
-  fixées dès maintenant pour que les 4 features avancent en parallèle.
-- Schéma facultatif (l'exemple de l'enseignant n'en a pas) : seulement s'il tient
-  dans les 4 pages. Image dans doc/img/, puis retirer les balises de commentaire
-  autour de la ligne d'image sous le tableau.
--->
 
 # Architecture technique et frameworks envisagés
 
@@ -209,18 +167,6 @@ Responsable : ... [le tableau : 5 étapes, 15 mots par case au plus]
 
 # 07 Protocole d'usage de l'IA
 
-<!--
-Responsable : ... [120 mots + le tableau : 6 lignes, 10 mots par case au plus]
-- Le principe, en une phrase. Le livret : « le groupe doit garder la maîtrise de
-  l'outil, de la qualité des livraisons logicielles, de l'explicabilité de la
-  structure et du fonctionnement du code ».
-- Le tableau : activité, ce que fait l'IA, ce que fait l'humain.
-- Les interdits. Rappel du livret : IA interdite pendant les évaluations.
-- La traçabilité : section « Usage de l'IA » de chaque pull request ; une araignée
-  par livrable (annexe) ; éventuellement un dossier exemples-ia/ comme dans l'exemple.
-- L'usage déjà fait, déclaré tel quel : choix du sujet, idées de features,
-  structure de ce dossier, mise en place du dépôt, script de l'araignée.
--->
 ## Principe :
 L’intelligence artificielle est utilisée comme un assistant pour suggérer des solutions, expliquer des notions et relire le code. L’équipe reste responsable de ses choix techniques et de l’ensemble du code intégré au projet. Chaque membre doit être capable d’expliquer le code qu’il soumet, notamment lors de la soutenance.
 
