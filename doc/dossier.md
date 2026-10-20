@@ -1,0 +1,158 @@
+---
+title: "NOM DU PRODUIT"
+subtitle: "Dossier de projet — M1 MIAGE Apprentissage — R1 : dossier de lancement"
+author: "Prénom NOM, Prénom NOM, Prénom NOM, Prénom NOM"
+date: "20 octobre 2026"
+geometry: margin=2cm
+fontsize: 11pt
+---
+
+<!--
+MODE D'EMPLOI (ces commentaires n'apparaissent pas dans le PDF)
+- Structure calquée sur l'exemple de l'enseignant : sections 01 à 07, puis l'annexe.
+  Les sections 08 et suivantes de l'exemple (livraison, fiches des features)
+  arriveront à la v0.1.0.
+- Chacun ne modifie QUE sa section, depuis SON compte, via une pull request.
+- Les consignes sous chaque titre sont des questions : répondez-y avec vos mots,
+  puis supprimez le commentaire.
+- Limite : 4 pages au total, annexe comprise. Budget de chaque section entre crochets.
+- Pas d'emoji ni de flèche dans le texte : le moteur PDF par défaut les refuse.
+-->
+
+# 01 Équipe, comptes développeurs et dépôt
+
+<!--
+Responsable : ... [60 mots + le tableau]
+- Le tableau : membre, compte GitHub, email des commits (git config user.email).
+  Dépôt public : adresse noreply de GitHub, pas l'email personnel.
+- Une phrase : chacun a vérifié que son email Git est associé à son compte GitHub.
+- L'URL du dépôt unique (les quatre couches dans le même dépôt).
+- L'organisation : qui porte quel domaine ; une feature complète par membre et par
+  itération, de la BD au front ; les tâches transverses partagées ; chaque pull
+  request relue par un autre membre.
+-->
+
+| Membre | Compte GitHub | Email des commits |
+|---------|---------|--------------|
+|  |  |  |
+|  |  |  |
+|  |  |  |
+|  |  |  |
+
+# 02 Projet et caractère innovant
+
+<!--
+Responsable : ... [180 mots]
+- Le problème : pour qui, et qu'est-ce qui manque aujourd'hui ?
+- Le produit, en deux ou trois phrases (pitch validé par tout le groupe).
+- Ce qui est innovant, en 2 ou 3 points justifiés. Critère de l'exemple :
+  « le calcul plutôt que le stockage ».
+- Ce qui existe déjà : uniquement des jeux ou outils vérifiés par vous.
+- « Cluedo » est une marque : pas comme nom de produit.
+-->
+
+# 03 Scénarios d'usage
+
+<!--
+Responsable : NATHAN. [180 mots : 6 scénarios de 30 mots]
+- 5 ou 6 scénarios numérotés, au format de l'exemple :
+  « En tant que <rôle>, je <action>. L'application <ce qu'elle calcule>, afin de <bénéfice>. »
+- Chaque feature de la v0.1.0 a son scénario ; ajoutez une ou deux features de la v0.2.0.
+- Chaque scénario montre ce que l'application CALCULE, pas ce qu'elle stocke.
+- Au moins deux rôles différents.
+- Mêmes noms de features que dans la section 04 ; aucun détail d'interface.
+-->
+
+# 04 Plan des features
+
+<!--
+Responsable : NATHAN pour le tableau ; chaque membre rédige lui-même ses 3 cases.
+[1 phrase + le tableau ; 10 mots par case au plus]
+- Règle de l'enseignant : « Une feature a un effet sur la BD, le back, l'API REST
+  et le front. Chaque feature est portée par une seule personne et repose sur un
+  algorithme identifié. »
+- Test des 4 couches, pour chaque feature : quelle table, quel traitement,
+  quel endpoint, quel écran ?
+- Format d'une case : « Nom de la feature — algorithme ».
+-->
+
+| Version | Membre 1 (domaine) | Membre 2 (domaine) | Membre 3 (domaine) | Membre 4 (domaine) |
+|------|-----------|-----------|-----------|-----------|
+| v0.1.0 24/11 |  |  |  |  |
+| v0.2.0 08/12 |  |  |  |  |
+| v1.0.0 19/01 |  |  |  |  |
+
+# 05 Architecture
+
+<!--
+Responsable : ... [120 mots + le tableau]
+- Le tableau, une ligne par couche ; pour chaque choix, une raison.
+- Pas de découpage « back d'abord, front ensuite » : chaque feature traverse
+  les 4 couches dès la v0.1.0.
+- Qualité et livraison : tests, couverture, qualité de code et intégration continue
+  sont exigés à la v0.1.0, badges compris. Conteneurs : exigés à la v0.2.0.
+- Où vivent les algorithmes : un module par domaine, cœur en Java pur,
+  testable sans Spring ni BD.
+- Le modèle commun : les données partagées par toutes les features (l'affaire ?),
+  fixées dès maintenant pour que les 4 features avancent en parallèle.
+- Schéma facultatif (l'exemple de l'enseignant n'en a pas) : seulement s'il tient
+  dans les 4 pages. Image dans doc/img/, puis retirer les balises de commentaire
+  autour de la ligne d'image sous le tableau.
+-->
+
+| Couche | Choix | Remarques |
+|------|--------------|--------------|
+| Front |  |  |
+| API REST |  |  |
+| Back |  |  |
+| BD |  |  |
+| Qualité et livraison |  |  |
+| Conteneurs |  |  |
+
+<!-- ![](img/architecture.png){width=45%} -->
+
+# 06 Démarche pour chaque feature
+
+<!--
+Responsable : ... [le tableau : 5 étapes, 15 mots par case au plus]
+- Les étapes d'une feature, dans l'ordre, de l'idée au front, et pour chacune
+  le critère qui dit qu'elle est terminée.
+-->
+
+| Étape | Ce qu'on fait | Terminé quand |
+|-----|---------------|----------|
+|  |  |  |
+
+# 07 Protocole d'usage de l'IA
+
+<!--
+Responsable : ... [120 mots + le tableau : 6 lignes, 10 mots par case au plus]
+- Le principe, en une phrase. Le livret : « le groupe doit garder la maîtrise de
+  l'outil, de la qualité des livraisons logicielles, de l'explicabilité de la
+  structure et du fonctionnement du code ».
+- Le tableau : activité, ce que fait l'IA, ce que fait l'humain.
+- Les interdits. Rappel du livret : IA interdite pendant les évaluations.
+- La traçabilité : section « Usage de l'IA » de chaque pull request ; une araignée
+  par livrable (annexe) ; éventuellement un dossier exemples-ia/ comme dans l'exemple.
+- L'usage déjà fait, déclaré tel quel : choix du sujet, idées de features,
+  structure de ce dossier, mise en place du dépôt, script de l'araignée.
+-->
+
+| Activité | Ce que fait l'IA | Ce que fait l'humain |
+|-------|-----------|-----------|
+|  |  |  |
+
+# Annexe : part IA et part humaine du dossier de lancement
+
+<!--
+Responsable : ... [30 mots + le graphe]
+1. Fixez en équipe doc/part-ia/plafonds.json : plafonds communs à tous les livrables,
+   plus bas pour le haut niveau.
+2. Estimez honnêtement doc/part-ia/dossier-lancement.json : ce dossier et la mise
+   en place du dépôt.
+3. Lancez : python doc/outils/araignee.py doc/part-ia/dossier-lancement.json
+4. Retirez les balises de commentaire autour de la ligne d'image ci-dessous.
+5. Une phrase de constat : sur quels axes la part IA dépasse-t-elle votre plafond, et pourquoi ?
+-->
+
+<!-- ![](part-ia/dossier-lancement.png){width=75%} -->
