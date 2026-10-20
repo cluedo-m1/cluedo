@@ -188,12 +188,10 @@ les tests des algorithmes et la maintenance de l'application.
 
 | Couche | Choix | Remarques |
 |------|--------------|--------------|
-| Front |  |  |
-| API REST |  |  |
-| Back |  |  |
-| BD |  |  |
-| Qualité et livraison |  |  |
-| Conteneurs |  |  |
+| Front | Angular | Interface d'enquête : scénarios, indices, hypothèses et progression |
+| API REST | Spring Boot | Échanges HTTP/JSON entre Angular et Java |
+| Back | Java / Spring Boot | Algorithmes de génération, déduction, vérification de solution unique et difficulté |
+| BD | PostgreSQL | Stockage des enquêtes, suspects, indices, solutions et joueurs |
 
 <!-- ![](img/architecture.png){width=45%} -->
 
