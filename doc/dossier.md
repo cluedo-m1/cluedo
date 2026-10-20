@@ -1,7 +1,7 @@
 ---
 title: "NOM DU PRODUIT"
 subtitle: "Dossier de projet — M1 MIAGE Apprentissage — R1 : dossier de lancement"
-author: "Prénom NOM, Prénom NOM, Prénom NOM, Prénom NOM"
+author: "Prénom NOM, Prénom NOM, Prénom NOM, Steven KAMEL
 date: "20 octobre 2026"
 geometry: margin=2cm
 fontsize: 11pt
@@ -99,6 +99,58 @@ Responsable : ... [120 mots + le tableau]
   dans les 4 pages. Image dans doc/img/, puis retirer les balises de commentaire
   autour de la ligne d'image sous le tableau.
 -->
+
+# Architecture technique et frameworks envisagés
+
+Notre projet repose sur une **architecture trois tiers** :
+un front-end, un back-end exposant une API REST et une
+base de données relationnelle.
+
+## Front-end – Angular
+
+Angular permettra de développer l'interface interactive
+de notre jeu d'enquête inspiré du Cluedo, situé dans un
+campus universitaire fictif. Les joueurs pourront explorer
+des scénarios, consulter des indices, interroger les
+informations disponibles, formuler des hypothèses et
+progresser dans leurs enquêtes.
+
+## Back-end – Java avec Spring Boot
+
+Le back-end constituera le **cœur algorithmique** de notre
+application. Il assurera la génération automatique
+d'enquêtes cohérentes, la vérification de leur solution
+unique et la résolution par déduction logique.
+
+Les algorithmes permettront également d'évaluer la
+difficulté des enquêtes, de proposer des indices adaptés
+et d'expliquer les raisonnements étape par étape.
+
+Le système pourra aussi vérifier les enquêtes
+personnalisées créées par les enseignants.
+
+Une API REST assurera la communication avec Angular
+via HTTP et JSON.
+
+## Base de données – PostgreSQL
+
+PostgreSQL stockera les scénarios d'enquête, les suspects,
+les lieux, les indices, les solutions ainsi que les
+informations relatives aux joueurs et à leur progression.
+
+La communication avec Java pourra utiliser
+**Spring Data JPA**.
+
+## Organisation du développement
+
+Nous développerons d'abord le back-end Java, notamment
+les algorithmes de génération, de vérification et de
+déduction, puis les API REST et le front-end Angular.
+
+Cette séparation facilitera le développement collaboratif,
+les tests des algorithmes et la maintenance de l'application.
+
+## Schéma de l'architecture
 
 | Couche | Choix | Remarques |
 |------|--------------|--------------|
