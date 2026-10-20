@@ -34,7 +34,7 @@ Les joueurs devront mener leur enquête en déterminant, à partir des indices, 
 
 ## 2. Objectif et problématique
 
-L’objectif du projet est de créer un jeu d’enquête interactif capable de générer automatiquement des scénarios cohérents, tout en permettant aux joueurs de progresser grâce aux indices et aux explications fournies.
+L’objectif du projet est de créer un jeu d’enquête interactif capable de générer automatiquement des scénarios cohérents, tout en permettant aux joueurs de progresser grâce aux indices et aux explications fournies. Le but est vraiment de venir revisiter ce jeu pour l'adapter à un contexte universitaire et surtout au contexte de notre master MIAGE.
 
 **Problématique :**
 
