@@ -1,0 +1,14 @@
+{
+  "axes": [
+    {"nom": "Débogage", "niveau": "bas", "ia": 0, "plafond": 70},
+    {"nom": "Rédaction", "niveau": "bas", "ia": 60, "plafond": 70},
+    {"nom": "CI/CD", "niveau": "bas", "ia": 0, "plafond": 80},
+    {"nom": "Tests", "niveau": "bas", "ia": 0, "plafond": 40},
+    {"nom": "Code", "niveau": "bas", "ia": 0, "plafond": 80},
+    {"nom": "Validation", "niveau": "haut", "ia": 0, "plafond": 20},
+    {"nom": "Algorithmique", "niveau": "haut", "ia": 0, "plafond": 30},
+    {"nom": "Spécification", "niveau": "haut", "ia": 0, "plafond": 40},
+    {"nom": "Conception", "niveau": "haut", "ia": 0, "plafond": 30},
+    {"nom": "Idéation", "niveau": "haut", "ia": 60, "plafond": 30}
+  ]
+}
