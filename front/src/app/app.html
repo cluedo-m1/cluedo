@@ -1,0 +1,10 @@
+<header>
+  <h1>Cluedo</h1>
+  <p class="discret">{{ version() }}</p>
+</header>
+@if (erreur()) {
+  <p class="erreur" role="alert">{{ erreur() }}</p>
+}
+<main>
+  <router-outlet />
+</main>

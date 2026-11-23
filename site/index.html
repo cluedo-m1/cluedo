@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cluedo</title>
+  <meta name="description" content="Projet M1 MIAGE Apprentissage">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!--
+    PAGE DE PROJET publiée sur GitHub Pages à chaque push sur main (workflow pages.yml).
+    À compléter par l'équipe : remplacer les textes entre crochets, cluedo-m1/cluedo, et une carte par feature.
+    dossier.pdf et part-ia.svg sont ajoutés automatiquement à la publication.
+  -->
+  <header class="hero">
+    <div class="contenu">
+      <p class="sur-titre">Projet M1 MIAGE Apprentissage</p>
+      <h1>Cluedo</h1>
+      <p class="accroche">Un jeu d'enquête façon Cluedo sur un campus universitaire fictif : des affaires générées automatiquement, à solution unique, dont chaque déduction est expliquée.</p>
+      <nav class="actions">
+        <a class="bouton" href="dossier.pdf">Dossier de projet (PDF)</a>
+        <a class="bouton secondaire" href="https://github.com/cluedo-m1/cluedo">Code source</a>
+        <a class="bouton secondaire" href="https://github.com/cluedo-m1/cluedo/releases">Versions</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="contenu">
+    <section>
+      <h2>Le projet</h2>
+      <p>Dans les énigmes conçues à la main, plusieurs coupables sont parfois possibles, ou aucun. Cluedo génère des enquêtes inspirées de la vie d'une faculté (fuite de sujet d'examen, intrusion sur un serveur, disparition de matériel), vérifie qu'elles ont exactement une solution, règle leur difficulté et explique le raisonnement étape par étape.</p>
+    </section>
+
+    <section>
+      <h2>Fonctionnalités</h2>
+      <div class="grille">
+        <!-- une carte par feature livrée -->
+        <article class="carte">
+          <p class="version">v0.1.0</p>
+          <h3>Affaire tirée sous contraintes</h3>
+          <p>Génère automatiquement une affaire cohérente, dont la solution est unique.</p>
+          <p class="algo">Algorithme : Satisfaction de contraintes (CSP / backtracking)</p>
+          <p class="auteur">Steven Kamel</p>
+        </article>
+        <article class="carte">
+          <p class="version">v0.1.0</p>
+          <h3>Moteur de déduction</h3>
+          <p>Déduit ce qui est possible à partir des indices et vérifie qu'une enquête est solvable.</p>
+          <p class="algo">Algorithme : Propagation de contraintes (AC-3) et retour arrière</p>
+          <p class="auteur">Rafael Rodrigues</p>
+        </article>
+        <article class="carte">
+          <p class="version">v0.1.0</p>
+          <h3>Graphe spatio-temporel du campus</h3>
+          <p>Carte du campus et déplacements horodatés des suspects, avec contrôle de cohérence des trajets.</p>
+          <p class="algo">Algorithme : Cheminement sur graphe orienté horodaté</p>
+          <p class="auteur">Ilies Hamadene</p>
+        </article>
+        <article class="carte">
+          <p class="version">v0.1.0</p>
+          <h3>Filtrage d'hypothèses</h3>
+          <p>Met à jour la liste des possibles quand le joueur formule une hypothèse sur le suspect, le lieu et l'objet.</p>
+          <p class="algo">Algorithme : Dénombrement des scénarios compatibles (retour arrière)</p>
+          <p class="auteur">Nathan Eullaffroy</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Architecture</h2>
+      <p>Front Angular → API REST (Spring Boot) → back Java en architecture hexagonale → PostgreSQL.</p>
+    </section>
+
+    <section>
+      <h2>Équipe</h2>
+      <ul class="equipe">
+        <li><a href="https://github.com/neullaffroy">Nathan Eullaffroy</a></li>
+        <li><a href="https://github.com/rdsrafa">Rafael Rodrigues</a></li>
+        <li><a href="https://github.com/Deep0315">Ilies Hamadene</a></li>
+        <li><a href="https://github.com/Stevenkml">Steven Kamel</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Part IA / part humaine</h2>
+      <p>Part de l'IA générative déclarée par compétence, comparée aux plafonds que l'équipe s'est fixés.</p>
+      <img class="araignee" src="part-ia.svg" alt="Graphe en araignée de la part de l'IA par compétence">
+    </section>
+  </main>
+
+  <footer class="contenu">
+    <p>Cluedo · M1 MIAGE Apprentissage · <a href="https://github.com/cluedo-m1/cluedo">cluedo-m1/cluedo</a></p>
+  </footer>
+</body>
+</html>
