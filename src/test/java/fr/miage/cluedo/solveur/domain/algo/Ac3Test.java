@@ -63,4 +63,39 @@ class Ac3Test {
         assertThat(modifie).isTrue();
         assertThat(coupable.estVide()).isTrue();
     }
+    @Test
+    void ac3RenvoieFalseQuandLEnqueteEstIncoherente() {
+        Variable coupable = new Variable("Coupable", new LinkedHashSet<>(List.of("Alice")));
+        Variable lieu = new Variable("Lieu", new LinkedHashSet<>(List.of("imprimante")));
+        Contrainte aliceSeulementSalle = new Contrainte(
+                coupable, lieu,
+                (c, l) -> !c.equals("Alice") || l.equals("salle"),
+                "Alice n'a accès qu'à la salle");
+
+        boolean coherent = Ac3.ac3(List.of(aliceSeulementSalle));
+
+        assertThat(coherent).isFalse();
+    }
+    @Test
+    void ac3ReduitLEnqueteDeLaMatinee() {
+        Variable coupable = new Variable("Coupable", new LinkedHashSet<>(List.of("Alice", "Bob", "Chloé")));
+        Variable lieu = new Variable("Lieu", new LinkedHashSet<>(List.of("salle", "imprimante", "serveur")));
+
+        Contrainte alice = new Contrainte(coupable, lieu,
+                (c, l) -> !c.equals("Alice") || l.equals("salle"),
+                "Alice n'a accès qu'à la salle");
+        Contrainte chloe = new Contrainte(coupable, lieu,
+                (c, l) -> !c.equals("Chloé") || l.equals("salle"),
+                "Chloé n'a accès qu'à la salle");
+        Contrainte bob = new Contrainte(coupable, lieu,
+                (c, l) -> !c.equals("Bob") || l.equals("imprimante") || l.equals("serveur"),
+                "Bob n'a accès qu'à l'imprimante ou au serveur");
+
+        lieu.retirer("salle"); // indice : le vol n'a pas eu lieu dans la salle
+
+        boolean coherent = Ac3.ac3(List.of(alice, chloe, bob));
+
+        // À TOI : vérifie que coherent est vrai, que Coupable vaut {Bob}
+        //         et que Lieu vaut {imprimante, serveur}
+    }
 }

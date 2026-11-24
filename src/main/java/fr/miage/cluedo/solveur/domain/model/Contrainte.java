@@ -24,7 +24,7 @@ public class Contrainte {
     public Contrainte inverse(){
         return new Contrainte(
             y, x, 
-            (valeurX, valeurY) ->autorise(valeurY, valeurX), 
+            (valeurY, valeurX) ->autorise(valeurX, valeurY), 
             description);
     }
     public Variable getX(){
