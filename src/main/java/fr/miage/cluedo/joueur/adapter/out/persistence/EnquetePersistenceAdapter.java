@@ -3,6 +3,7 @@ package fr.miage.cluedo.joueur.adapter.out.persistence;
 import fr.miage.cluedo.joueur.application.port.out.EnqueteRepositoryPort;
 import fr.miage.cluedo.joueur.domain.ContrainteLogique;
 import fr.miage.cluedo.joueur.domain.EnqueteFiltrage;
+import fr.miage.cluedo.joueur.domain.EnqueteInvalideException;
 import fr.miage.cluedo.joueur.domain.IndiceEnquete;
 import fr.miage.cluedo.joueur.domain.Litteral;
 import fr.miage.cluedo.joueur.domain.ValeurId;
@@ -45,7 +46,16 @@ class EnquetePersistenceAdapter implements EnqueteRepositoryPort {
     @Override
     @Transactional(readOnly = true)
     public Optional<EnqueteFiltrage> trouverParId(long id) {
-        return enquetes.findById(id).map(this::charger);
+        return enquetes.findById(id).map(enquete -> chargerEnVerifiant(enquete, id));
+    }
+
+    // Une enquête incohérente en base n'est pas une requête invalide (400) : c'est une erreur serveur (500).
+    private EnqueteFiltrage chargerEnVerifiant(EnqueteJpa enquete, long id) {
+        try {
+            return charger(enquete);
+        } catch (EnqueteInvalideException exception) {
+            throw new IllegalStateException("Données incohérentes pour l'enquête " + id, exception);
+        }
     }
 
     private EnqueteFiltrage charger(EnqueteJpa enquete) {
