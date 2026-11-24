@@ -1,8 +1,8 @@
 package fr.miage.cluedo.solveur.domain.model;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import java.util.Set;
+
+import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 
 class VariableTest {
@@ -28,5 +28,23 @@ class VariableTest {
         lieu.retirer("salle");
 
         assertThat(lieu.estVide()).isTrue();
+    }
+    @Test
+    void restaurerRemetLeDomaineDAvant(){
+        Variable lieu = new Variable("Lieu", Set.of("salle","serveur"));
+        Set<String> sauvegarde = lieu.sauvegarder();
+        lieu.retirer("salle");
+        assertThat(lieu.getDomaine());
+        lieu.restaurer(sauvegarde);
+        assertThat(lieu.getDomaine());
+    }
+    @Test
+    void laSauvegardeEstIndependanteDuDomaine() {
+        Variable lieu = new Variable("Lieu", Set.of("salle", "serveur"));
+        Set<String> sauvegarde = lieu.sauvegarder();
+
+        lieu.retirer("salle");
+
+        assertThat(sauvegarde).containsExactlyInAnyOrder("salle", "serveur");
     }
 }

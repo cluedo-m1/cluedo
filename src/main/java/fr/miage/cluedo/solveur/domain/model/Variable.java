@@ -5,7 +5,10 @@ import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
 
-/** Une variable du problème (ex. « Coupable ») et l'ensemble de ses valeurs encore possibles. */
+/**
+ * Une variable du problème (ex. « Coupable ») et l'ensemble de ses valeurs
+ * encore possibles.
+ */
 public class Variable {
 
     private final String nom;
@@ -13,11 +16,15 @@ public class Variable {
 
     public Variable(String nom, Set<String> valeurs) {
         this.nom = Objects.requireNonNull(nom);
-        // copie défensive : on ne garde pas l'ensemble de l'appelant (voir point 2 ci-dessous)
+        // copie défensive : on ne garde pas l'ensemble de l'appelant (voir point 2
+        // ci-dessous)
         this.domaine = new LinkedHashSet<>(Objects.requireNonNull(valeurs));
     }
 
-    /** @return true si la valeur était présente et a été retirée, false si le domaine n'a pas changé. */
+    /**
+     * @return true si la valeur était présente et a été retirée, false si le
+     *         domaine n'a pas changé.
+     */
     public boolean retirer(String valeur) {
         return domaine.remove(valeur);
     }
@@ -34,7 +41,10 @@ public class Variable {
         return domaine.size();
     }
 
-    /** Vue en lecture seule : personne ne modifie le domaine sans passer par {@link #retirer}. */
+    /**
+     * Vue en lecture seule : personne ne modifie le domaine sans passer par
+     * {@link #retirer}.
+     */
     public Set<String> getDomaine() {
         return Collections.unmodifiableSet(domaine);
     }
@@ -43,8 +53,22 @@ public class Variable {
         return nom;
     }
 
-    /** Copie indépendante, utile pour le retour arrière (on essaie sur une copie, on jette si ça échoue). */
+    /**
+     * Copie indépendante, utile pour le retour arrière (on essaie sur une copie, on
+     * jette si ça échoue).
+     */
     public Variable copie() {
         return new Variable(nom, domaine);
+    }
+
+    /** Une copie du domaine actuel, pour pouvoir y revenir. */
+    public Set<String> sauvegarder() {
+        return new LinkedHashSet<>(domaine);
+    }
+
+    /** Remet le domaine tel qu'il était dans la sauvegarde. */
+    public void restaurer(Set<String> sauvegarde) {
+        domaine.clear();
+        domaine.addAll(sauvegarde);
     }
 }
