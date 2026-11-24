@@ -52,6 +52,8 @@ class JoueurControllerIT {
                 .andExpect(jsonPath("$.variables[1].valeurs", hasSize(6)))
                 .andExpect(jsonPath("$.variables[2].valeurs", hasSize(6)))
                 .andExpect(jsonPath("$.indices", hasSize(5)))
+                .andExpect(jsonPath("$.indices[0].id", is(1)))
+                .andExpect(jsonPath("$.indices[0].libelle", is("Le suspect n'est pas Prof. Leblanc")))
                 .andExpect(jsonPath("$.indices[*]", everyItem(not(hasKey("clause")))))
                 .andExpect(jsonPath("$.indices[*]", everyItem(not(hasKey("contrainte")))))
                 .andExpect(jsonPath("$.indices[*]", everyItem(not(hasKey("litteraux")))));
