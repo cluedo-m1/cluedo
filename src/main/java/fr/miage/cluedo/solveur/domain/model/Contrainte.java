@@ -21,6 +21,12 @@ public class Contrainte {
     public boolean autorise(String valeurX, String valeurY) {
         return regle.test(valeurX, valeurY);
     }
+    public Contrainte inverse(){
+        return new Contrainte(
+            y, x, 
+            (valeurX, valeurY) ->autorise(valeurY, valeurX), 
+            description);
+    }
     public Variable getX(){
         return x;
     }
