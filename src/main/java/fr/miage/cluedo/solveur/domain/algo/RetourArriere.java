@@ -1,13 +1,13 @@
 package fr.miage.cluedo.solveur.domain.algo;
 
-import fr.miage.cluedo.solveur.domain.model.Contrainte;
-import fr.miage.cluedo.solveur.domain.model.Variable;
-
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+
+import fr.miage.cluedo.solveur.domain.model.Contrainte;
+import fr.miage.cluedo.solveur.domain.model.Variable;
 
 public final class RetourArriere {
 
@@ -44,25 +44,19 @@ public final class RetourArriere {
         int total = 0;
         for (String valeur : new ArrayList<>(choisie.getDomaine())) {
 
-            // 1. sauvegarder le domaine de TOUTES les variables
             Map<Variable, Set<String>> sauvegardes = new LinkedHashMap<>();
             for (Variable v : variables) {
                 sauvegardes.put(v, v.sauvegarder());
             }
 
-            // 2. fixer choisie à cette valeur
             choisie.fixer(valeur);
 
-            // 3. compter les solutions avec cette valeur
             total += compterSolutions(variables, contraintes);
-            /* TROU 2 : l'appel récursif */;
 
-            // 4. annuler : remettre chaque domaine comme avant
             for (Variable v : variables) {
                 v.restaurer(sauvegardes.get(v));
             }
 
-            // 5. inutile de continuer si on a déjà « plusieurs » solutions
             if (total >= 2) {
                 break;
             }
