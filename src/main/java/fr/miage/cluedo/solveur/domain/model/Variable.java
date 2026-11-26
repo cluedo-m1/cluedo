@@ -71,4 +71,8 @@ public class Variable {
         domaine.clear();
         domaine.addAll(sauvegarde);
     }
+    /** Ne garde que cette valeur dans le domaine. */
+    public void fixer(String valeur) {
+        domaine.retainAll(Set.of(valeur));
+    }
 }
