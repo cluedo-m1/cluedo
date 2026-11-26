@@ -1,5 +1,6 @@
 package fr.miage.cluedo.solveur.domain.model;
 
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -46,5 +47,12 @@ class VariableTest {
         lieu.retirer("salle");
 
         assertThat(sauvegarde).containsExactlyInAnyOrder("salle", "serveur");
+    }
+    @Test 
+    void testSurFixer(){
+        Variable lieu = new Variable("lieu",Set.of("salle","serveur"));
+        lieu.fixer("salle");
+
+        assertThat(lieu.getDomaine()).containsExactly("salle");
     }
 }
