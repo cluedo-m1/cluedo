@@ -10,6 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import fr.miage.cluedo.solveur.domain.exception.EnqueteInvalideException;
+import fr.miage.cluedo.solveur.domain.exception.EnqueteIncoherenteException;
 import fr.miage.cluedo.solveur.domain.model.Exclusion;
 import fr.miage.cluedo.solveur.domain.model.Implication;
 import fr.miage.cluedo.solveur.domain.model.Indice;
@@ -65,6 +66,19 @@ class ResoudreEnqueteServiceTest {
         assertThatThrownBy(() -> service.resoudre(domaines, indices))
                 .isInstanceOf(EnqueteInvalideException.class)
                 .hasMessageContaining("Lieux");
+    }
+    @Test
+    void refuseUneEnqueteIncoherente() {
+        ResoudreEnqueteService service = new ResoudreEnqueteService();
+        Map<String, Set<String>> domaines = new LinkedHashMap<>();
+        domaines.put("Coupable", new LinkedHashSet<>(List.of("Alice")));
+        domaines.put("Lieu", new LinkedHashSet<>(List.of("salle", "imprimante")));
+
+        List<Indice> indices = List.of(
+                new Exclusion("Lieu", "salle"),
+                new Implication("Coupable", "Alice", "Lieu", Set.of("salle")));
+
+        assertThatThrownBy(() -> service.resoudre(domaines, indices)).isInstanceOf(EnqueteIncoherenteException.class).hasMessageContaining("contradictoires");
     }
 
 }

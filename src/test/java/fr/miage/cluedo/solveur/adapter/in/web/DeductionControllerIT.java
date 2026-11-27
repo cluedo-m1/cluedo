@@ -68,4 +68,26 @@ class DeductionControllerIT {
                 .andExpect(jsonPath("$.detail").value(containsString("Lieux")));
     }
 
+    @Test
+    void renvoie422QuandLEnqueteEstIncoherente() throws Exception {
+        String json = """
+                {
+                  "variables": {
+                    "Coupable": ["Alice"],
+                    "Lieu": ["salle", "imprimante"]
+                  },
+                  "indices": [
+                    {"type": "EXCLUSION", "variable": "Lieu", "valeur": "salle"},
+                    {"type": "IMPLICATION", "variableX": "Coupable", "valeurX": "Alice",
+                    "variableY": "Lieu", "valeursAutoriseesY": ["salle"]}
+                  ]
+                }
+                """;
+
+        mockMvc.perform(post("/api/v1/deduction/resoudre")
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(json))
+                .andExpect(status().is(422));
+    }
+
 }

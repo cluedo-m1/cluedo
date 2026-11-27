@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Set;
 
 import fr.miage.cluedo.solveur.domain.exception.EnqueteInvalideException;
+import fr.miage.cluedo.solveur.domain.exception.EnqueteIncoherenteException;
 import fr.miage.cluedo.solveur.application.port.in.ResoudreEnqueteUseCase;
 import fr.miage.cluedo.solveur.domain.algo.RetourArriere;
 import fr.miage.cluedo.solveur.domain.model.Contrainte;
@@ -41,6 +42,9 @@ public class ResoudreEnqueteService implements ResoudreEnqueteUseCase {
         }
 
         int nb = RetourArriere.compterSolutions(new ArrayList<>(variables.values()), contraintes);
+        if(nb == 0){
+            throw new EnqueteIncoherenteException("Les indices sont contradictoires : aucune solution possible");
+        }
 
         Map<String, Set<String>> restants = new LinkedHashMap<>();
         for (Map.Entry<String, Variable> entree : variables.entrySet()) {
