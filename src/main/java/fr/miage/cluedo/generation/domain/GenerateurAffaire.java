@@ -12,7 +12,8 @@ public final class GenerateurAffaire {
             List<Horaire> horaires,
             List<MoyenAcces> moyensAcces,
             long seed) {
-
+                ValidateurDomaines.valider(
+        suspects, lieux, horaires, moyensAcces);
         // 1. Generer une solution secrete
         Optional<Solution> resultat =
                 new GenerateurEnquete(seed).generer(
