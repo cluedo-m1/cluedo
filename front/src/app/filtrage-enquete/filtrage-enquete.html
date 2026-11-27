@@ -1,0 +1,80 @@
+@if (erreur()) {
+  <p class="erreur" role="alert">{{ erreur() }}</p>
+}
+
+@if (enquete(); as e) {
+  <h2>{{ e.titre }}</h2>
+
+  <div class="colonnes">
+    <section aria-labelledby="titre-indices">
+      <h3 id="titre-indices">Indices recueillis</h3>
+      <p class="discret">Cochez les indices que vous avez découverts.</p>
+      <ul class="indices">
+        @for (indice of e.indices; track indice.id) {
+          <li>
+            <label>
+              <input
+                #case
+                type="checkbox"
+                [checked]="indicesActifs().has(indice.id)"
+                (change)="basculerIndice(indice.id, case.checked)"
+              />
+              {{ indice.libelle }}
+            </label>
+          </li>
+        }
+      </ul>
+    </section>
+
+    <section aria-labelledby="titre-hypothese">
+      <h3 id="titre-hypothese">Votre hypothèse</h3>
+      <p class="discret">Fixez une ou plusieurs pistes, ou laissez « aucune ».</p>
+      @for (variable of e.variables; track variable.code) {
+        <div class="champ">
+          <label [for]="'hypothese-' + variable.code">{{ libelleVariable(variable.code) }}</label>
+          <select
+            #liste
+            [id]="'hypothese-' + variable.code"
+            (change)="choisirValeur(variable.code, liste.value)"
+          >
+            <option value="" [selected]="!hypothese()[variable.code]">— aucune —</option>
+            @for (valeur of variable.valeurs; track valeur) {
+              <option [value]="valeur" [selected]="hypothese()[variable.code] === valeur">{{ valeur }}</option>
+            }
+          </select>
+        </div>
+      }
+      <button type="button" (click)="reinitialiser()">Réinitialiser</button>
+    </section>
+  </div>
+
+  @if (resultat(); as r) {
+    <section class="resultat" aria-labelledby="titre-resultat" aria-live="polite">
+      <h3 id="titre-resultat">Scénarios compatibles</h3>
+      <p class="total">{{ r.totalScenariosCompatibles }}</p>
+      @if (r.totalScenariosCompatibles === 0) {
+        <p class="erreur">Aucun scénario compatible : vos indices et votre hypothèse se contredisent.</p>
+      }
+
+      <div class="colonnes">
+        @for (comptage of r.comptageParVariable; track comptage.variable) {
+          <div>
+            <h4>{{ libelleVariable(comptage.variable) }}</h4>
+            <ul class="comptages">
+              @for (ligne of comptage.valeurs; track ligne.valeur) {
+                <li [class.elimine]="ligne.scenarios === 0">
+                  <span class="valeur">{{ ligne.valeur }}</span>
+                  <span class="barre" aria-hidden="true">
+                    <span [style.width.%]="pourcentage(ligne.scenarios, r.totalScenariosCompatibles)"></span>
+                  </span>
+                  <span class="nombre">{{ ligne.scenarios }}</span>
+                </li>
+              }
+            </ul>
+          </div>
+        }
+      </div>
+      <p class="discret">Nœuds explorés par le solveur : {{ r.noeudsVisites }}</p>
+    </section>
+  }
+}
