@@ -8,7 +8,8 @@ import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import org.junit.jupiter.api.Test;
-
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
+import fr.miage.cluedo.solveur.domain.exception.EnqueteInvalideException;
 import fr.miage.cluedo.solveur.domain.model.Exclusion;
 import fr.miage.cluedo.solveur.domain.model.Implication;
 import fr.miage.cluedo.solveur.domain.model.Indice;
@@ -54,6 +55,16 @@ class ResoudreEnqueteServiceTest {
         assertThat(resultat.nombreSolutions()).isEqualTo(1);
         assertThat(resultat.domaines().get("Lieu")).containsExactly("imprimante");
         assertThat(resultat.domaines().get("Coupable")).containsExactly("Bob");
+    }
+    @Test
+    void refuseUnIndiceSurUneVariableInconnue() {
+        ResoudreEnqueteService service = new ResoudreEnqueteService();
+        Map<String, Set<String>> domaines = Map.of("Lieu", Set.of("salle", "serveur"));
+        List<Indice> indices = List.of(new Exclusion("Lieux", "salle")); // faute de frappe voulue
+
+        assertThatThrownBy(() -> service.resoudre(domaines, indices))
+                .isInstanceOf(EnqueteInvalideException.class)
+                .hasMessageContaining("Lieux");
     }
 
 }

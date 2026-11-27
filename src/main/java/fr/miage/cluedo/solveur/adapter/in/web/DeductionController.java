@@ -1,5 +1,7 @@
 package fr.miage.cluedo.solveur.adapter.in.web;
 
+import fr.miage.cluedo.solveur.domain.exception.EnqueteInvalideException;
+
 import fr.miage.cluedo.solveur.application.port.in.ResoudreEnqueteUseCase;
 import fr.miage.cluedo.solveur.domain.model.Exclusion;
 import fr.miage.cluedo.solveur.domain.model.Implication;
@@ -31,6 +33,8 @@ public class DeductionController {
             } else if ("IMPLICATION".equals(dto.type())) {
                 indices.add(new Implication(dto.variableX(), dto.valeurX(),
                         dto.variableY(), dto.valeursAutoriseesY()));
+            } else {
+                throw new EnqueteInvalideException("Type d'indice inconnu : " + dto.type());
             }
         }
 

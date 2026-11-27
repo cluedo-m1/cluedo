@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import fr.miage.cluedo.solveur.domain.exception.EnqueteInvalideException;
 import fr.miage.cluedo.solveur.application.port.in.ResoudreEnqueteUseCase;
 import fr.miage.cluedo.solveur.domain.algo.RetourArriere;
 import fr.miage.cluedo.solveur.domain.model.Contrainte;
@@ -28,11 +29,11 @@ public class ResoudreEnqueteService implements ResoudreEnqueteUseCase {
         List<Contrainte> contraintes = new ArrayList<>();
         for (Indice indice : indices) {
             if (indice instanceof Exclusion e) {
-                variables.get(e.variable()).retirer(e.valeur());
+                variable(variables, e.variable()).retirer(e.valeur());
             } else if (indice instanceof Implication i) {
                 contraintes.add(new Contrainte(
-                        variables.get(i.variableX()), // la variable X (ex. Coupable)
-                        variables.get(i.variableY()), // la variable Y (ex. Lieu)
+                        variable(variables, i.variableX()), // la variable X (ex. Coupable)
+                        variable(variables, i.variableY()), // la variable Y (ex. Lieu)
                         (x, y) -> !x.equals(i.valeurX()) || i.valeursAutoriseesY().contains(y),
                         i.variableX() + " = " + i.valeurX() + " impose " + i.variableY() + " dans "
                                 + i.valeursAutoriseesY()));
@@ -46,5 +47,12 @@ public class ResoudreEnqueteService implements ResoudreEnqueteUseCase {
             restants.put(entree.getKey(), new LinkedHashSet<>(entree.getValue().getDomaine()));
         }
         return new Resultat(nb, restants);
+    }
+    private Variable variable(Map<String,Variable> variables,String nom){
+        Variable v = variables.get(nom);
+        if(v == null){
+            throw new EnqueteInvalideException("Variable inconnue:"+ nom);
+        }
+        return v;
     }
 }
