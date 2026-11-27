@@ -1,0 +1,99 @@
+<section class="generation">
+
+  <div class="introduction">
+    <span class="etiquette">CLUEDO — CAMPUS</span>
+
+    <h2>Génération d'enquête</h2>
+
+    <p>
+      Une nouvelle affaire vous attend.
+      Analysez les indices pour identifier le responsable.
+    </p>
+
+    <button
+      type="button"
+      (click)="generer()"
+      [disabled]="chargement()">
+      {{ chargement() ? 'Génération en cours...' :
+         'Générer une enquête' }}
+    </button>
+  </div>
+
+  @if (erreur()) {
+    <p class="erreur" role="alert">{{ erreur() }}</p>
+  }
+
+  @if (enquete(); as affaire) {
+
+    <div class="scenario">
+      <span class="etiquette">NOUVELLE AFFAIRE</span>
+      <h2>{{ affaire.titre }}</h2>
+      <p>{{ affaire.description }}</p>
+    </div>
+
+    <h3>Les suspects</h3>
+
+    <div class="grille">
+      @for (suspect of affaire.suspects; track suspect.nom) {
+        <article class="carte">
+          <div class="avatar">{{ suspect.nom.charAt(0) }}</div>
+          <h4>{{ suspect.nom }}</h4>
+
+          <p><strong>Autorisations :</strong></p>
+
+          @for (acces of suspect.moyensAcces; track acces) {
+            <span class="pastille">{{ formater(acces) }}</span>
+          } @empty {
+            <span class="pastille">Aucune</span>
+          }
+
+          <p><strong>Présences :</strong></p>
+
+          @for (horaire of suspect.horairesPresence; track horaire) {
+            <span class="pastille">{{ formater(horaire) }}</span>
+          }
+        </article>
+      }
+    </div>
+
+    <h3>Les lieux</h3>
+
+    <div class="grille">
+      @for (lieu of affaire.lieux; track lieu.nom) {
+        <article class="carte">
+          <h4>{{ lieu.nom }}</h4>
+          <p>Accès requis : {{ formater(lieu.moyenAccesRequis) }}</p>
+        </article>
+      }
+    </div>
+
+    <h3>Les horaires possibles</h3>
+
+    <div class="domaines">
+      @for (horaire of affaire.horaires; track horaire) {
+        <span class="pastille">{{ formater(horaire) }}</span>
+      }
+    </div>
+
+    <h3>Les moyens d'accès possibles</h3>
+
+    <div class="domaines">
+      @for (acces of affaire.moyensAcces; track acces) {
+        <span class="pastille">{{ formater(acces) }}</span>
+      }
+    </div>
+
+    <h3>Les indices ({{ affaire.indices.length }})</h3>
+
+    <div class="indices">
+      @for (indice of affaire.indices; track $index) {
+        <div class="indice">
+          <span class="numero">{{ $index + 1 }}</span>
+          <p>{{ formaterIndice(indice.description) }}</p>
+        </div>
+      }
+    </div>
+
+  }
+
+</section>
