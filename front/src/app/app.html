@@ -6,5 +6,15 @@
   <p class="erreur" role="alert">{{ erreur() }}</p>
 }
 <main>
+  <button (click)="resoudre()">Résoudre l'enquête</button>
+
+  @if (resultat(); as r) {
+    <p>Nombre de solutions : {{ r.nombreSolutions }}</p>
+    <ul>
+      @for (entree of r.domaines | keyvalue; track entree.key) {
+        <li>{{ entree.key }} : {{ entree.value.join(', ') }}</li>
+      }
+    </ul>
+  }
   <router-outlet />
 </main>
